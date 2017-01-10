@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "moduleResolution": "node",
+
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+
+        "sourceMap": true,
+
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+
+        // No need for @types/core-js with this option.
+        "lib": ["es2015", "dom"]
+    },
+
+    // Cannot use "files" here because then the tsconfig file will not
+    // affect all files that is not in that list and it will give errors
+    // for experimentalDecorators and so on.
+
+    // The "exclude" property defaults to excluding the node_modules,
+    // bower_components, jspm_packages and <outDir> directories when not specified.
+    "exclude": [
+        "node_modules",
+        "src/app/polyfills.ts",
+        "src/app/main.aot.ts"
+    ]
+}

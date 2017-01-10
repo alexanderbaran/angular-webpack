@@ -1,0 +1,78 @@
+{
+    "files.exclude": {
+        "node_modules/": true,
+        "src/app/**/*.map": true,
+        "npm-debug.log": true,
+        ".vscode": true
+    },
+
+    "typescript.tsdk": "./node_modules/typescript/lib",
+
+    // https://github.com/csscomb/csscomb.js/blob/master/doc/options.md
+    "csscomb.formatOnSave": true,
+    "csscomb.preset": {
+
+        "exclude": ["node_modules/**"],
+
+        "sort-order": [
+            ["$variable"],
+            ["$include"],
+            ["box-sizing"],
+            [
+                "display",
+                "position",
+                "top",
+                "bottom",
+                "left",
+                "right",
+                "float"                
+            ],
+            [
+                "width",
+                "height"                
+            ],
+            [
+                "margin",
+                "padding"
+            ],
+            [
+                "background",
+                "background-color",
+                "border",
+                "color",
+                "font",
+                "font-size",
+                "font-weight"
+            ],
+            ["..."]
+        ],
+
+        "sort-order-fallback": "abc",
+
+        "block-indent": 4,
+
+        "space-before-colon": "",
+        "space-after-colon": 1,
+
+        "space-before-combinator": 1,
+        "space-after-combinator": 1,
+        "space-before-selector-delimiter": 0,
+        "space-after-selector-delimiter": 1,
+
+        "space-before-opening-brace": 1,
+        "space-after-opening-brace": "\n",
+        "space-before-closing-brace": "\n",
+
+        "lines-between-rulesets": 1,
+
+        "quotes": "single",
+        "leading-zero": false,
+        "color-shorthand": false,
+        "unitless-zero": true,
+        "color-case": "lower",
+        "vendor-prefix-align": true,
+
+        "element-case": "lower",
+        "always-semicolon": true
+    }
+}

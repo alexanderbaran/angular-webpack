@@ -1,0 +1,8 @@
+@import 'sass/variables';
+
+@import 'sass/home';
+@import 'sass/lazy';
+
+.home, .lazy {
+    display: inline;
+}

@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "moduleResolution": "node",
+
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+
+        "sourceMap": false,
+
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        
+        // No need for @types/core-js with this option.
+        "lib": ["es2015", "dom"],
+
+        /* This will prevent transpiled .js and possible
+        (depending on the "skipMetadataEmit" in angularCompilerOptions)
+        metadata.json files to be created in our main src folder,
+        and instead created in this specified folder. */
+        "outDir": "./dist"
+    },
+
+    "angularCompilerOptions": {
+        /* genDir option does some weird shit when combined with outDir.
+        Not using it until they have fixed it in later versions. */
+        // "genDir": "./dist",
+
+        /* Official: The "skipMetadataEmit" : true property prevents the compiler from
+        generating metadata files with the compiled application. Metadata files
+        are not necessary when targeting TypeScript files, so there is no reason
+        to include them.
+        Ømer: This affects the outDir tmp directory, if outDir is set, or else
+        the files will appear in the src/app folder. */
+        "skipMetadataEmit" : true
+    },
+
+    "exclude": [
+        "node_modules",
+        "src/app/polyfills.ts",
+        "src/app/main.ts"
+    ]
+}
