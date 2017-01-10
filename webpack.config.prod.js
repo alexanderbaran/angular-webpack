@@ -34,6 +34,11 @@ module.exports = webpackMerge.smart(commonConfig, {
     plugins: [
         // http://dev.topheman.com/how-to-fail-webpack-build-on-error/
         new webpack.NoErrorsPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'PRODUCTION': JSON.stringify(true)
+            }
+        }),
         new webpack.optimize.UglifyJsPlugin({
             comments: false
         }),
