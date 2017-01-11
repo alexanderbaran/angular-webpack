@@ -48,7 +48,7 @@ module.exports = {
                 loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
             },
             {
-                test: /\.(png|jpg|eot|woff2|woff|ttf|svg)$/,
+                test: /\.(png|jpg|eot|woff2|woff|ttf|otf|svg)$/,
                 // Take small images etc and inline them.
                 loader: 'url-loader?limit=10000'
             }
