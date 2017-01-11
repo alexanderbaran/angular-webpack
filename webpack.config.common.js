@@ -20,18 +20,18 @@ module.exports = {
                 // use: 'html'
                 loader: 'html'
             },
-            // {
-            //     test: /\.scss$/,
-            //     exclude: /styles\.scss/,
-            //     // No sourcemaps here.
-            //     // https://github.com/angular/angular/issues/9664
-            //     loaders: ['raw', 'postcss', 'sass']
-            // },
             {
-                // Will only do plain css for components because of lack of AOT support.
+                test: /\.scss$/,
+                exclude: /styles\.scss/,
+                // No sourcemaps here.
+                // https://github.com/angular/angular/issues/9664
+                loaders: ['raw', 'postcss', 'sass']
+            },
+            {
+                // For AOT.
                 test: /\.css$/,
                 loaders: ['raw']
-            },            
+            },
             {
                 test: /styles\.scss$/,
                 /* Need ?sourceMap on both css and sass. If only on css then
@@ -47,16 +47,6 @@ module.exports = {
                 set, so that absolute paths are generated. */
                 loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
             }
-            // {
-            //     test: /\.css$/,
-            //     exclude: /styles\.css/,
-            //     use: ['raw', 'postcss']
-            // },
-            // {
-            //     test: /styles\.css$/,
-            //     // https://github.com/webpack/css-loader/issues/228
-            //     use: ['style', 'css?sourceMap&importLoaders=1', 'postcss']
-            // }
         ]
     },
 

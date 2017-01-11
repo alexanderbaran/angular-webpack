@@ -1,8 +1,10 @@
-@import 'sass/variables';
+@import 'assets/sass/variables';
 
-@import 'sass/home';
-@import 'sass/lazy';
+@import 'assets/sass/home';
+@import 'assets/sass/lazy';
 
 .home, .lazy {
     display: inline;
+
+    color: $white;
 }
