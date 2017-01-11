@@ -8,7 +8,7 @@
     "scsstocss": "node-sass src/app/ -o src/app/ && postcss --use autoprefixer --autoprefixer.browsers \"last 10 version\" --replace src/app/**/*.css && replace .scss .css src/app -r --include=*.component.ts",
     "csstoscss": "replace .css .scss src/app -r --include=*.component.ts && rimraf src/app/**/*.css",
     "ngc": "ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json",
-    "dev": "webpack-dev-server --config webpack.config.dev.js",
+    "dev": "webpack-dev-server --inline --config webpack.config.dev.js",
     "build": "rimraf dist && webpack --config webpack.config.prod.js",
     "build:aot": "rimraf dist && npm run scsstocss && npm run ngc && webpack --config webpack.config.aot.js && npm run csstoscss && npm run cleanup"
   },
