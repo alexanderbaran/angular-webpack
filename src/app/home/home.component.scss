@@ -1,5 +1,5 @@
-$shadow: rgba(0,0,0,.75);
+@import '../../assets/sass/variables';
 
 .home {
-    box-shadow: 1px 1px 1px 0 $shadow;
+    box-shadow: 1px 1px 1px 0 $black;
 }
