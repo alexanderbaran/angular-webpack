@@ -13,6 +13,8 @@ module.exports = {
         loaders: [
             {
                 test: /\.ts$/,
+                // Also excluding node_modules in tsconfig.json.
+                exclude: /node_modules/,
                 loaders: ['awesome-typescript', 'angular2-template', 'angular2-router']
             },
             {
@@ -46,6 +48,11 @@ module.exports = {
                 paths setting output.publicPath property of webpack configuration must be
                 set, so that absolute paths are generated. */
                 loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
+            },
+            {
+                test: /\.(png|jpg|eot|woff2|woff|ttf|svg)$/,
+                // Take small images etc and inline them.
+                loader: 'url-loader?limit=10000'
             }
         ]
     },

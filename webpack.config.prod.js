@@ -1,8 +1,8 @@
 var webpack = require('webpack');
 var webpackMerge = require('webpack-merge');
 var commonConfig = require('./webpack.config.common');
-var CompressionPlugin = require("compression-webpack-plugin");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var CompressionPlugin = require('compression-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = webpackMerge.smart(commonConfig, {
 
@@ -40,12 +40,14 @@ module.exports = webpackMerge.smart(commonConfig, {
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
-            comments: false
+            comments: false // default true
+            // sourceMap: false // default true
+            // mangle: false // default true. Might perhaps break Angular 2 sometimes.
         }),
-        new ExtractTextPlugin("styles.[hash].css"),
+        new ExtractTextPlugin('styles.[hash].css'),
         new CompressionPlugin({
-            asset: "[path].gz[query]",
-            algorithm: "gzip",
+            asset: '[path].gz[query]',
+            algorithm: 'gzip',
             test: /\.(js|css)$/,
             threshold: 10240,
             minRatio: 0.8
