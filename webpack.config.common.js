@@ -13,8 +13,6 @@ module.exports = {
         loaders: [
             {
                 test: /\.ts$/,
-                // Also excluding node_modules in tsconfig.json.
-                exclude: /node_modules/,
                 loaders: ['awesome-typescript', 'angular2-template', 'angular2-router']
             },
             {

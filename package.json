@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cleanup": "rimraf dist/src dist/node_modules src/app/**/*.json src/app/**/*.ngstyle.ts src/app/**/*.ngfactory.ts",
+    "cleanup": "del-cli dist/src dist/node_modules 'src/app/**/*.json' 'src/app/**/*.ngstyle.ts' 'src/app/**/*.ngfactory.ts' 'src/app/**/*.css'",
     "scsstocss": "node-sass src/app/ -o src/app/ && postcss --use autoprefixer --autoprefixer.browsers \"last 10 version\" --replace src/app/**/*.css && replace .scss .css src/app -r --include=*.component.ts",
-    "csstoscss": "replace .css .scss src/app -r --include=*.component.ts && rimraf src/app/**/*.css",
+    "csstoscss": "replace .css .scss src/app -r --include=*.component.ts",
     "ngc": "ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json",
     "dev": "webpack-dev-server --inline --config webpack.config.dev.js",
-    "build": "rimraf dist && webpack --config webpack.config.prod.js",
-    "build:aot": "rimraf dist && npm run scsstocss && npm run ngc && webpack --config webpack.config.aot.js && npm run csstoscss && npm run cleanup"
+    "build": "del-cli dist && webpack --config webpack.config.prod.js",
+    "build:aot": "del-cli dist && npm run scsstocss && npm run ngc && webpack --config webpack.config.aot.js && npm run csstoscss && npm run cleanup"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +37,7 @@
     "awesome-typescript-loader": "^3.0.0-beta.17",
     "compression-webpack-plugin": "^0.3.2",
     "css-loader": "^0.26.1",
+    "del-cli": "^0.2.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
@@ -46,7 +47,6 @@
     "postcss-loader": "^1.2.1",
     "raw-loader": "^0.5.1",
     "replace": "^0.3.0",
-    "rimraf": "^2.5.4",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "typescript": "2.0.3",
