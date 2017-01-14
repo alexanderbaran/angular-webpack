@@ -10,7 +10,8 @@
     "ngc": "ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json",
     "dev": "webpack-dev-server --inline --config webpack.config.dev.js",
     "build": "del-cli dist && webpack --config webpack.config.prod.js",
-    "build:aot": "del-cli dist && npm run scsstocss && npm run ngc && webpack --config webpack.config.aot.js && npm run csstoscss && npm run cleanup"
+    "build:aot": "del-cli dist && npm run scsstocss && npm run ngc && webpack --config webpack.config.aot.js && npm run csstoscss && npm run cleanup",
+    "serve": "lite-server -c bs-config.js"
   },
   "keywords": [],
   "author": "",
@@ -42,6 +43,7 @@
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.26.0",
+    "lite-server": "^2.2.2",
     "node-sass": "^4.2.0",
     "postcss-cli": "^2.6.0",
     "postcss-loader": "^1.2.1",
