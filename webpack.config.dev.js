@@ -17,7 +17,7 @@ module.exports = webpackMerge.smart(commonConfig, {
     },
 
     devServer: {
-        port: 8080,
+        port: 80,
 
         /* So we can use slashes instead of hashtag in Angular.
         Will see an output like: "404s will fallback to /index.html"
@@ -32,7 +32,7 @@ module.exports = webpackMerge.smart(commonConfig, {
 
         // proxy: {
         //     '/api/': {
-        //         target: 'http://localhost:80',
+        //         target: 'http://localhost:8080',
         //         secure: false,
         //         changeOrigin: true, // needed for virtual hosted sites
         //         ws: true, // proxy websockets
