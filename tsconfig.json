@@ -13,7 +13,13 @@
         "experimentalDecorators": true,
 
         // No need for @types/core-js with this option.
-        "lib": ["es2015", "dom"]
+        "lib": ["es2015", "dom"],
+
+        // Report errors on unused locals. Requires TypeScript version 2.0 or later.
+        "noUnusedLocals": true,
+
+        // Report errors on unused parameters. Requires TypeScript version 2.0 or later.
+        "noUnusedParameters": true
     },
 
     // Cannot use "files" here because then the tsconfig file will not

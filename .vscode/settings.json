@@ -8,6 +8,14 @@
 
     "typescript.tsdk": "./node_modules/typescript/lib",
 
+    // https://www.npmjs.com/package/codelyzer
+    /* Already in tslint.json but chose to also have it here since it
+    is recommended in the link above. */
+    "tslint.rulesDirectory": "./node_modules/codelyzer",
+
+    // https://marketplace.visualstudio.com/items?itemName=eg2.tslint
+    "tslint.exclude": "./node_modules/**/*.ts",
+
     // https://github.com/csscomb/csscomb.js/blob/master/doc/options.md
     "csscomb.formatOnSave": true,
     "csscomb.preset": {

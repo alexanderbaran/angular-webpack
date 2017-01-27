@@ -1,0 +1,83 @@
+{
+  "rulesDirectory": [
+    "node_modules/codelyzer"
+  ],
+  "rules":{
+
+    // Codelyzer Angular 2 rules.
+    // https://github.com/mgechev/codelyzer
+
+    "directive-selector": [true, "attribute", "p", "camelCase"],
+    "component-selector": [true, "element", "p", "kebab-case"],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "no-forward-ref": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "pipe-naming": [true, "camelCase", "p"],
+    "component-class-suffix": true,
+    "directive-class-suffix": true,
+    "import-destructuring-spacing": true,
+    "templates-use-public": true,
+    "no-access-missing-member": true,
+    "invoke-injectable": true,
+
+    // TSLint specific rules.
+    // https://palantir.github.io/tslint/rules/curly/
+
+    // Disallows traditional (non-arrow) function expressions.
+    // "only-arrow-functions": [true],
+
+    // Enforces braces for if/for/do/while statements.
+    // https://palantir.github.io/tslint/rules/curly/
+    "curly": true,
+
+    // Disallows usage of the var keyword.
+    "no-var-keyword": true,
+
+    // Disallows unused imports, variables, functions and private class members.
+    // https://palantir.github.io/tslint/rules/no-unused-variable/
+    // Use the "noUnusedLocals" and "noUnusedParameters" instead in tsconfig.json.
+    // "no-unused-variable": true // Deprecated.
+
+    // Requires that variable declarations use const instead of let if possible.
+    "prefer-const": true,
+
+    // https://palantir.github.io/tslint/rules/array-type/
+    "array-type": [true, "array"],
+
+    // Requires parentheses around the parameters of arrow function definitions.
+    "arrow-parens": true,
+
+    // Suggests to convert () => { return x; } to () => x.
+    "arrow-return-shorthand": [true],
+
+    // https://palantir.github.io/tslint/rules/object-literal-key-quotes/
+    "object-literal-key-quotes": [true, "as-needed"],
+
+    // https://palantir.github.io/tslint/rules/one-line/
+    "one-line": [true, "check-catch", "check-finally", "check-else"],
+
+    // Disallows multiple variable definitions in the same declaration statement.
+    "one-variable-per-declaration": [true, "ignore-for-loop"],
+
+    // https://palantir.github.io/tslint/rules/quotemark/
+    "quotemark": [true, "single", "avoid-escape"],
+
+    // https://palantir.github.io/tslint/rules/semicolon/
+    "semicolon": [true, "always"],
+
+    // https://palantir.github.io/tslint/rules/space-before-function-paren/
+    "space-before-function-paren": [true, {"anonymous": "always", "named": "never", "asyncArrow": "always", "method": "never", "constructor": "never"}],
+
+    // https://palantir.github.io/tslint/rules/variable-name/
+    "variable-name": [true, "ban-keywords", "check-format"],
+
+    // https://palantir.github.io/tslint/rules/whitespace/
+    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-type", "check-typecast"]
+  }
+}
