@@ -10,9 +10,9 @@ import { AppModule } from './app.module';
 
 // http://stackoverflow.com/questions/34868810/what-is-difference-between-production-and-development-mode-in-angular2
 if (process.env.PRODUCTION) {
-    enableProdMode()
+    enableProdMode();
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
     .then(/*success => console.log(`Bootstrap success`)*/)
-    .catch(err => console.error(err));
+    .catch((reason: any) => console.error(reason));
