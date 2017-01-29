@@ -9,32 +9,32 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
 
-        // TSLint test.
+        // // TSLint test.
     
-        // const constOne = 1, ConstTwo = 0;
+        // // const constOne = 1, ConstTwo = 0;
 
-        if (true) {
-            const msg: string = 'Hello World';
-            console.log(msg);
-        } else { }
+        // if (true) {
+        //     const msg: string = 'Hello World';
+        //     console.log(msg);
+        // } else { }
 
-        const singleLine = () => 10;
+        // const singleLine = () => 10;
 
-        const multiLine = () => {
-            return 10;
-        };
+        // const multiLine = () => {
+        //     return 10;
+        // };
 
-        const argParanthesis = (age: number) => age;
+        // const argParanthesis = (age: number) => age;
 
-        const nonTradFunc = (/*unusedParam: string*/) => {
-            const someObj = {
-                someString: 'Some normal object property.',
-                'some-weird-property': 'Some kebab-cased named object property.'
-            };
-            return someObj;
-        };
+        // const nonTradFunc = (/*unusedParam: string*/) => {
+        //     const someObj = {
+        //         someString: 'Some normal object property.',
+        //         'some-weird-property': 'Some kebab-cased named object property.'
+        //     };
+        //     return someObj;
+        // };
 
-        console.log(singleLine(), multiLine(), argParanthesis(2), nonTradFunc());
+        // console.log(singleLine(), multiLine(), argParanthesis(2), nonTradFunc());
     }
 }
 

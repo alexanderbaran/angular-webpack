@@ -1,7 +1,11 @@
 @import 'assets/sass/variables';
 
-@import 'assets/sass/home';
+// @import 'assets/sass/home';
 @import 'assets/sass/lazy';
+
+:root {
+    --color-aqua: aqua;
+}
 
 .home, .lazy {
     display: inline;

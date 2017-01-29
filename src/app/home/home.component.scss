@@ -1,5 +1,11 @@
 @import '../../assets/sass/variables';
 
+:host {
+    --color-red: red;
+}
+
 .home {
-    box-shadow: 1px 1px 1px 0 $black;
+    // box-shadow: 1px 1px 1px 0 $black;
+    background-color: var(--color-red);
+    color: var(--color-aqua);
 }
