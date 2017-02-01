@@ -23,7 +23,9 @@ module.exports = {
 
             // // Sass
             // {
-            //     test: /\.component\.scss$/,
+            //     /* Can't test for /\.component\.scss$/ because @import statements in .scss files
+            //     are loaded with webpack and should only be tested for /\.scss$/ */
+            //     test: /\.scss$/,
             //     exclude: /styles\.scss/,
             //     // No sourcemaps here.
             //     // https://github.com/angular/angular/issues/9664
@@ -54,16 +56,13 @@ module.exports = {
             // PostCSS-cssnext
             {
                 test: /\.component\.css$/,
-                exclude: /styles\.css/,
-                loaders: [
-                    'raw',
-                    'postcss?sourceMap=inline'
-                ]
+                loaders: ['raw']
             },            
             {
                 test: /styles\.css$/,
                 loaders: ['style', 'css?sourceMap&importLoaders=1', 'postcss?sourceMap=inline']
-            },            
+            },
+
             {
                 test: /\.(png|jpg|eot|woff2|woff|ttf|otf|svg)$/,
                 // Take small images etc and inline them.

@@ -16,10 +16,13 @@
         "lib": ["es2015", "dom"],
 
         // Report errors on unused locals. Requires TypeScript version 2.0 or later.
+        // Turn off for webpack AOT bundling with awesome-typescript-loader.
         "noUnusedLocals": true,
+        // "noUnusedLocals": false,
 
         // Report errors on unused parameters. Requires TypeScript version 2.0 or later.
         "noUnusedParameters": true
+        // "noUnusedParameters": false
     },
 
     // Cannot use "files" here because then the tsconfig file will not
