@@ -1,4 +1,7 @@
 {
+
+    "workbench.activityBar.visible": false,
+
     "files.exclude": {
         "node_modules/": true,
         "src/app/**/*.map": true,
