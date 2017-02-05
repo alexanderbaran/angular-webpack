@@ -1,12 +1,28 @@
-@import '../../assets/sass/colors';
+@import '../../assets/sass/utils';
+
+// .home {
+//     display: inline-block;
+
+//     padding: 5px;
+
+//     background: linear-gradient($orange, $red);
+
+//     border-radius: 3px;
+//     box-shadow: 1px 1px 1px 0 $black;
+// }
 
 .home {
-    display: inline-block;
+    @extend %clearfix;
+    @include mq('desktop') {
+        background-color: blue;
+    }
+    @include mq('desktop-wide') {
+        background-color: gray;
+    }
 
-    padding: 5px;
+    background-color: pink;
+}
 
-    background: linear-gradient($orange, $red);
-
-    border-radius: 3px;
-    box-shadow: 1px 1px 1px 0 $black;
+.box {
+    @include triangle(red, up, 50px);
 }
