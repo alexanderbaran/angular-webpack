@@ -1,0 +1,17 @@
+@import 'colors';
+
+body {
+    color: #666666;
+    font: 13px/1.5em sans-serif;
+}
+
+a {
+    color: $p-blue;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:visited {
+        color: #aaaaaa;
+    }
+}

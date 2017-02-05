@@ -26,34 +26,55 @@
         "exclude": ["node_modules/**"],
 
         "sort-order": [
-            ["$variable"],
-            ["$include"],
-            ["box-sizing"],
             [
+                "$variable",
+                "$include",
+                "box-sizing",
+
+                "text-indent",
+
                 "display",
+                
                 "position",
                 "top",
-                "bottom",
                 "left",
                 "right",
-                "float"                
-            ],
-            [
+                "bottom",
+
+                "float",
+                "clear",
                 "width",
-                "height"                
-            ],
-            [
+                "height",
+                "content",
+
                 "margin",
-                "padding"
-            ],
-            [
+                "margin-top",
+                "margin-right",
+                "margin-bottom",
+                "margin-left",
+
+                "padding",
+                "padding-top",
+                "padding-right",
+                "padding-bottom",
+                "padding-left",
+
                 "background",
                 "background-color",
+
                 "border",
+                "border-top",
+                "border-right",
+                "border-bottom",
+                "border-left",
+
                 "color",
+
                 "font",
                 "font-size",
-                "font-weight"
+                "font-weight",
+
+                "text-decoration"
             ],
             ["..."]
         ],

@@ -12,17 +12,22 @@
 // }
 
 .home {
-    @extend %clearfix;
-    @include mq('desktop') {
-        background-color: blue;
-    }
-    @include mq('desktop-wide') {
-        background-color: gray;
-    }
-
-    background-color: pink;
+    @include clearfix;
+    // @include media('1024') {
+    //     background-color: blue;
+    // }
+    // @include media('1280') {
+    //     background-color: gray;
+    // }
+    // background-color: pink;
 }
 
+// @include media('1280') {
+//     .home {
+//         background-color: aqua;
+//     }
+// }
+
 .box {
-    @include triangle(red, up, 50px);
+    @include triangle;
 }

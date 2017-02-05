@@ -1,12 +1,25 @@
-%clearfix {
+@mixin clearfix {
     &:before, &:after {
         display: table;
-
-        content: ' ';
+        content: '';
     }
     &:after {
         clear: both;
     }
+}
+
+@mixin logo($url) {
+    text-indent: -9999px;
+    // The background scrolls along with the element. This is default.
+    background: transparent url($url) no-repeat scroll;
+}
+
+@mixin truncate($overflow: ellipsis) {
+    overflow: hidden;
+    // https://developer.mozilla.org/en/docs/Web/CSS/text-overflow
+    text-overflow: $overflow;
+    // http://www.w3schools.com/cssref/tryit.asp?filename=trycss_text_white-space
+    white-space: nowrap;
 }
 
 // List indexes start at 1, not 0.
@@ -26,13 +39,18 @@ $z-indexes: (
     }
 }
 
+/* As of January 2016, about 97% of our visitors have a screen
+resolution of 1024x768 pixels or higher. */
 $breakpoints: (
-    'desktop-small': 1020px,
-    'desktop-medium': 1248px,
-    'desktop-large': 1440px
+    /* Need to set aside at least 17px (20px to be sure) for scrollbar.
+    If screen size is 1024, page width should be 1000px. */
+    '1024': 1024px,
+    '1280': 1280px,
+    '1366': 1366px,
+    '1920': 1920px
 );
 
-@mixin mq($width, $type: min) {
+@mixin media($width, $type: min) {
     @if map_has_key($breakpoints, $width) {
         $width: map_get($breakpoints, $width);
         @if $type == max {
@@ -44,40 +62,69 @@ $breakpoints: (
     }
 }
 
-@mixin pseudo($display: block, $pos: absolute, $content: '') {
-    display: $display;
-    position: $pos;
-
-    content: $content;
-}
-
-@mixin triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
-    @include pseudo($pos: $position);
-
+// http://bourbon.io/docs/#triangle
+@mixin triangle ($size: 20px 10px, $color: gray, $direction: up) {
+    $width: nth($size, 1);
+    $height: nth($size, length($size));
+    $foreground-color: nth($color, 1);
+    $background-color: if(length($color) == 2, nth($color, 2), transparent);
     width: 0;
     height: 0;
-    @if $round {
-        border-radius: 3px;
+    @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+        $width: $width / 2;
+        $height: if(length($size) > 1, $height, $height/2);
+        @if $direction == up {
+            border-right: $width solid $background-color;
+            border-bottom: $height solid $foreground-color;
+            border-left: $width solid $background-color;
+        } @else if $direction == right {
+            border-top: $width solid $background-color;
+            border-bottom: $width solid $background-color;
+            border-left: $height solid $foreground-color;
+        } @else if $direction == down {
+            border-top: $height solid $foreground-color;
+            border-right: $width solid $background-color;
+            border-left: $width solid $background-color;
+        } @else if $direction == left {
+            border-top: $width solid $background-color;
+            border-right: $height solid $foreground-color;
+            border-bottom: $width solid $background-color;
+        }
     }
-    @if $direction == down {
-        border-left: $size solid transparent;
-        border-right: $size solid transparent;
-        border-top: $size solid $color;
-        margin-top: 0 - round( $size / 2.5 );
-    } @else if $direction == up {
-        border-bottom: $size solid $color;
-        border-left: $size solid transparent;
-        border-right: $size solid transparent;
-        margin-bottom: 0 - round( $size / 2.5 );
-    } @else if $direction == right {
-        border-bottom: $size solid transparent;
-        border-left: $size solid $color;
-        border-top: $size solid transparent;
-        margin-right: -$size;
-    } @else if  $direction == left {
-        border-bottom: $size solid transparent;
-        border-right: $size solid $color;
-        border-top: $size solid transparent;
-        margin-left: -$size;
+    @else if ($direction == up-right) or ($direction == up-left) {
+        border-top: $height solid $foreground-color;
+        @if $direction == up-right {
+            border-left: $width solid $background-color;
+        } @else if $direction == up-left {
+            border-right: $width solid $background-color;
+        }
+    }
+    @else if ($direction == down-right) or ($direction == down-left) {
+        border-bottom: $height solid $foreground-color;
+        @if $direction == down-right {
+            border-left: $width solid $background-color;
+        } @else if $direction == down-left {
+            border-right: $width solid $background-color;
+        }
+    }
+    @else if ($direction == inset-up) {
+        border-color: $background-color $background-color $foreground-color;
+        border-style: solid;
+        border-width: $height $width;
+    }
+    @else if ($direction == inset-down) {
+        border-color: $foreground-color $background-color $background-color;
+        border-style: solid;
+        border-width: $height $width;
+    }
+    @else if ($direction == inset-right) {
+        border-color: $background-color $background-color $background-color $foreground-color;
+        border-style: solid;
+        border-width: $width $height;
+    }
+    @else if ($direction == inset-left) {
+        border-color: $background-color $foreground-color $background-color $background-color;
+        border-style: solid;
+        border-width: $width $height;
     }
 }
