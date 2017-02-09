@@ -9,6 +9,7 @@
 
 # Misc
 npm-debug.log
+debug.log
 
 # System files
 .DS_Store
